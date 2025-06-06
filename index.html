@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Encro Chat - Sécurité & Appels Webcam</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #0b0e1b;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background-color: #0b0e1b;
+      position: relative;
+      z-index: 10;
+    }
+
+    header img {
+      height: 70px;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00bfff;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 28px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 80px;
+      right: 10%;
+      background: rgba(11, 14, 27, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 20px;
+      gap: 15px;
+      z-index: 9;
+      animation: slideDown 0.3s ease forwards;
+    }
+
+    .mobile-nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: none;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      color: #ccc;
+    }
+
+    .hero button {
+      padding: 15px 30px;
+      font-size: 1em;
+      background-color: #00bfff;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .hero button:hover {
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 60px 10%;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2em;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      text-align: center;
+    }
+
+    .features div {
+      background-color: #11162a;
+      padding: 30px;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .features div:hover {
+      transform: translateY(-10px);
+    }
+
+    .features h3 {
+      margin-bottom: 15px;
+      color: #00bfff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 10%;
+      background-color: #0b0e1b;
+      font-size: 0.9em;
+      color: #888;
+    }
+
+    .animated-emoji {
+      animation: float 3s ease-in-out infinite;
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+
+      .hero h1 {
+        font-size: 2em;
+      }
+
+      .hero p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="img/logo.png" alt="Encro Chat Logo" />
+    <nav class="desktop-nav">
+      <a href="#fonctionnalites">Fonctionnalités</a>
+      <a href="#securite">Sécurité</a>
+      <a href="#infos">Infos</a>
+    </nav>
+    <i class='bx bx-menu menu-icon' id="menu-toggle"></i>
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="#fonctionnalites">Fonctionnalités</a>
+      <a href="#securite">Sécurité</a>
+      <a href="#infos">Infos</a>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h1><span class="animated-emoji">🔒</span> Encro Chat</h1>
+    <p>La nouvelle plateforme de chat privé et d'appels webcam 100% sécurisés. Aucun enregistrement, aucun traçage. Utilisation gratuite et anonyme.</p>
+    <button onclick="location.href='index.php'">Commencer</button>
+  </div>
+
+  <section id="fonctionnalites">
+    <h2>Fonctionnalités clés</h2>
+    <div class="features">
+      <div>
+        <h3>Appels Webcam</h3>
+        <p>Profitez de discussions vidéos sécurisées sans installation ni plugin.</p>
+      </div>
+      <div>
+        <h3>Messagerie Chiffrée</h3>
+        <p>Vos messages sont protégés par un chiffrement de bout en bout avancé.</p>
+      </div>
+      <div>
+        <h3>Anonymat Garanti</h3>
+        <p>Pas d'inscription compliquée, aucune donnée personnelle requise.</p>
+      </div>
+      <div>
+        <h3>Gratuit à 100%</h3>
+        <p>Encro Chat est totalement gratuit, sans publicité ni frais cachés.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="securite">
+    <h2>Sécurité avancée</h2>
+    <div class="features">
+      <div>
+        <h3>Chiffrement Fort</h3>
+        <p>Nous utilisons les dernières technologies pour protéger chaque échange.</p>
+      </div>
+      <div>
+        <h3>Connexion Anonyme</h3>
+        <p>Utilisez notre service sans laisser de trace, même en mode invité.</p>
+      </div>
+      <div>
+        <h3>Serveurs Sécurisés</h3>
+        <p>Hébergés dans des datacenters européens avec protection 24/7.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="infos">
+    <h2>Pourquoi choisir Encro Chat ?</h2>
+    <p style="text-align:center; max-width: 800px; margin: auto; color: #ccc;">
+      Encro Chat est conçu pour les utilisateurs qui souhaitent une confidentialité maximale dans leurs échanges.
+      Aucun cookie tiers, aucun tracking, juste une communication simple, directe et sécurisée. Essayez-le maintenant,
+      et profitez d'une expérience fluide et moderne.
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2025 Encro Chat — Tous droits réservés.
+  </footer>
+
+  <script>
+    const toggle = document.getElementById("menu-toggle");
+    const mobileNav = document.getElementById("mobile-nav");
+
+    toggle.addEventListener("click", () => {
+      mobileNav.style.display = mobileNav.style.display === "flex" ? "none" : "flex";
+    });
+
+    window.addEventListener("click", (e) => {
+      if (!toggle.contains(e.target) && !mobileNav.contains(e.target)) {
+        mobileNav.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
